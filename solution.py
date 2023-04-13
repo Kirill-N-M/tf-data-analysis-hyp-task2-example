@@ -1,11 +1,14 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as st
 
-
-chat_id = 123456 # Ваш chat ID, не меняйте название переменной
+chat_id = 586939927 # Ваш chat ID, не меняйте название переменной
 
 def solution(x: np.array, y: np.array) -> bool:
-    # Измените код этой функции
-    # Это будет вашим решением
-    # Не меняйте название функции и её аргументы
-    return ... # Ваш ответ, True или False
+    pv=st.ks_2samp(x,y, alternative='two-sided')[1]
+    print(pv)
+    if pv > 0.01:
+        return False
+    else:
+        return True
