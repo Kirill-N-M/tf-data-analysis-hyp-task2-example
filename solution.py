@@ -6,7 +6,7 @@ import scipy.stats as st
 chat_id = 586939927 # Ваш chat ID, не меняйте название переменной
 
 def solution(x: np.array, y: np.array) -> bool:
-    pv=st.ks_2samp(x,y, alternative='two-sided')[1]
+    pv= st.cramervonmises_2samp(x,y)[1]
     print(pv)
     if pv > 0.01:
         return False
